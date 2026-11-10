@@ -22,5 +22,23 @@ typedef struct{
 
 #define FLASH ((Flash_TypeDef*)FLASH_INTERFACE_REGISTER_BASE)
 
+// for temporary use for flash_write operation
+#define S7_ADD1 0x08060000
+#define S7_ADD2 0x08060004
+#define S7_ADD3 0x08060008
+#define S7_ADD4 0x0806000C
+
+#define S5_ADD1 0x08020000
+#define S5_ADD2 0x08020004
+#define S5_ADD3 0x08020008
+#define S5_ADD4 0x0802000C
+
+#define DATA1 0x54534554
+#define DATA2 0x544F4F42
+#define DATA3 0x4D524946
+#define DATA4 0x454E4F44
+
+
+
 
 #endif

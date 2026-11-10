@@ -79,3 +79,34 @@ void flash_erase_sector(uint32_t sector, uint32_t psize){
 
 
 }
+
+void enable_pg(void){
+    FLASH->CR |= (1 << 0);
+}
+
+
+void disable_pg(void){
+    FLASH->CR &= ~(1 << 0);
+}
+
+void flash_write(uint32_t address, uint32_t data){
+
+    flash_unlock();
+    flash_wait_busy();
+    enable_pg();
+    flash_set_psize(FLASH_PSIZE_32BIT); 
+    flash_set_EOPIE();
+
+    *(volatile uint32_t *)address = data;
+
+    flash_wait_busy();
+    flash_check_EOP();
+    flash_clear_EOP();
+
+    flash_clear_SR();
+
+    disable_pg();
+
+    flash_lock();
+
+}
