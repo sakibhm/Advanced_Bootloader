@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include "STM32F446.h"
+#include "flash.h"
 
 
 #define APP_BASE 0x08020000
@@ -20,6 +22,15 @@ void JumpToApp(void){
 int main(void)
 {
     
-    JumpToApp();
-    
+    //JumpToApp();
+
+    //flash_erase_sector(SECTOR7, FLASH_PSIZE_32BIT);
+    //flash_erase_sector(SECTOR5, FLASH_PSIZE_32BIT);
+
+    while(1){
+
+    }
+
+
+    return 0;
 }

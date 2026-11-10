@@ -8,7 +8,8 @@ LDFLAGS = -T linker_STM32F446.ld -nostdlib
 TARGET = build/main
 
 # C source files
-C_SOURCES = src/main.c
+C_SOURCES = src/main.c \
+						src/flash.c
 
 # Assembly source files
 ASM_SOURCES = startup_STM32F446.s
@@ -45,4 +46,15 @@ clean:
 flash: $(TARGET).bin
 	st-flash write $(TARGET).bin 0x08000000
 
-.PHONY: all clean flash
+# Start ST-LINK GDB server
+server:
+	st-util -n
+
+# Connect GDB to STM32
+connectgdb: $(TARGET).elf
+	gdb-multiarch $(TARGET).elf \
+		-ex "target extended-remote :4242" \
+		-ex "monitor halt" \
+		-q
+
+.PHONY: all clean flash server connectgdb
