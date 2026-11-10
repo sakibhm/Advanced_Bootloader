@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+//       FLASH ERASE    //
 void flash_unlock(void);
 void flash_lock(void);
 
@@ -17,4 +18,11 @@ void flash_lock(void);
 
 void flash_erase_sector(uint32_t sector, uint32_t psize);
 
+
+//      FLASH WRITE        //
+
+void enable_pg(void);
+void disable_pg(void);
+
+void flash_write(uint32_t address, uint32_t data);
 #endif
