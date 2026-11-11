@@ -24,8 +24,8 @@ int main(void)
     
     //JumpToApp();
 
-    flash_erase_sector(SECTOR7, FLASH_PSIZE_32BIT);
-    flash_erase_sector(SECTOR5, FLASH_PSIZE_32BIT);
+    flash_erase_sector(SECTOR7);
+    flash_erase_sector(SECTOR5);
 
     flash_write(S7_ADD1, DATA1);
     flash_write(S7_ADD2, DATA2);

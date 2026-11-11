@@ -51,11 +51,11 @@ void flash_clear_SR(void){
 
 
 
-void flash_erase_sector(uint32_t sector, uint32_t psize){
+void flash_erase_sector(uint32_t sector){
 
     flash_unlock();
     flash_wait_busy();
-    flash_set_psize(psize);
+    
     flash_set_EOPIE();
 
     //Sector erase activated.

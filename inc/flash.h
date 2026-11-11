@@ -16,7 +16,7 @@ void flash_clear_EOP(void);
 void flash_clear_SR(void);
 void flash_lock(void);
 
-void flash_erase_sector(uint32_t sector, uint32_t psize);
+void flash_erase_sector(uint32_t sector);
 
 
 //      FLASH WRITE        //
